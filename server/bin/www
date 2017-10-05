@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('demo:server');
 var http = require('http');
+
+// 链接数据库
 var db = require('./db');
 
 /**
@@ -14,7 +16,7 @@ var db = require('./db');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-// app.set('port', port);
+
 
 /**
  * Create HTTP server.
@@ -26,12 +28,11 @@ var server = http.createServer(app.callback());
  * Listen on provided port, on all network interfaces.
  */
 
-var listenPort = 3000;
-server.listen(listenPort);
+server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-console.log('===== Listening on port %s',listenPort);
+console.log('===== Listening on port %s',port);
 
 /**
  * Normalize a port into a number, string, or false.

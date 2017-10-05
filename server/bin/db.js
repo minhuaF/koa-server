@@ -1,4 +1,7 @@
-
+/**
+ * Created at 20160627
+ * auth by Miwa
+ */
 const mongoose = require('mongoose');
 // mongoose.Promise = global.Promise;
 
