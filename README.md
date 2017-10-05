@@ -34,6 +34,8 @@
 #### 20171005
 1. 优化代码结构；
 1. README.md 文档；
+1. 添加ejs模板，服务器端直接渲染（但不是同构项目，类似jsp）；
+1. 添加模板文件；
 
 ## 参考资料
 - [mongoDB与mongoose](http://www.cnblogs.com/web-fengmin/p/6435681.html)

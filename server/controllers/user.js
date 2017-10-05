@@ -28,9 +28,14 @@ export const getOne = async (ctx, next) => {
 export const getUserAll = async (ctx, next) => {
     try {
         const users = await userModels.getUserAll();
-        ctx.body = {
-            'users': users
-        };
+        // ctx.body = {
+        //     'users': users
+        // };
+        ctx.state = {
+            allUsers: users
+        }
+        await ctx.render('user', {})
+
     } catch (e) {
         console.log(e);
         ctx.body = {
