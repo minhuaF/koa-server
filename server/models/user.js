@@ -4,7 +4,7 @@
  */
 import mongoose from 'mongoose'
 // 加解密
-import crypto from 'crypto'
+// import crypto from 'crypto'
 
 const Schema = mongoose.Schema;
 
@@ -18,7 +18,7 @@ const UserSchema = new Schema({
 });
 
 // 创建模型
-const userModel = mongoose.model('users', UserSchema); 
+const UserModel = mongoose.model('users', UserSchema);
 
 // 创建user对象
 const userModels = {}
@@ -29,7 +29,7 @@ const userModels = {}
  * data: json
  */
 userModels.addUser = (obj) => {
-  let userEntity = new userModel(obj);
+  let userEntity = new UserModel(obj);
   return userEntity.save( (err, docs) => {
     if(err) console.log('addUser error:', err);
     console.log('addUser success:', docs)
@@ -47,7 +47,7 @@ userModels.addUser = (obj) => {
  * cond: 删除的条件
  */
 userModels.removeUser = (cond) => {
-  return userModel.remove(cond, (err, docs) => {
+  return UserModel.remove(cond, (err, docs) => {
     if(err) console.log('removeUser error:', err);
     console.log('removeUser success:', docs)
   });
@@ -57,17 +57,17 @@ userModels.removeUser = (cond) => {
  * cond : 更新条件，如{name:'张三'} 查找name=张三的记录
  * doc 更新的字段和值，如{name:'李四',type:'内部人员'} 
  * options有以下选项：
- *　　safe (boolean)： 默认为true。安全模式。
- *　　upsert (boolean)： 默认为false。如果不存在则创建新记录。
- *　　multi (boolean)： 默认为false。是否更新多个查询记录。
- *　　runValidators： 如果值为true，执行Validation验证。
- *　　setDefaultsOnInsert： 如果upsert选项为true，在新建时插入文档定义的默认值。
- *　　strict (boolean)： 以strict模式进行更新。
- *　  overwrite (boolean)： 默认为false。禁用update-only模式，允许覆盖记录。
+ *   safe (boolean)： 默认为true。安全模式。
+ *   upsert (boolean)： 默认为false。如果不存在则创建新记录。
+ *   multi (boolean)： 默认为false。是否更新多个查询记录。
+ *   runValidators： 如果值为true，执行Validation验证。
+ *   setDefaultsOnInsert： 如果upsert选项为true，在新建时插入文档定义的默认值。
+ *   strict (boolean)： 以strict模式进行更新。
+ *   overwrite (boolean)： 默认为false。禁用update-only模式，允许覆盖记录。
  */
 userModels.updateUserByName = (cond, doc, options) => {
   // return userModel.update(conditions,{$set: update});
-  return userModel.update(cond, doc, options, (err, docs) => {
+  return UserModel.update(cond, doc, options, (err, docs) => {
     if(err) console.log('updateUserByName error:', err);
     console.log('updateUserByName success:', docs)
   });
@@ -79,7 +79,7 @@ userModels.updateUserByName = (cond, doc, options) => {
  * proj: Object { name: 'XXX' } // 控制返回的字段
  */
 userModels.getUserByName = (cond, proj) => {
-  return userModel.find(cond, proj, (err, docs) => {
+  return UserModel.find(cond, proj, (err, docs) => {
     if(err) console.log('getUserByName error:', err);
     console.log('getUserByName success:', docs)
   });
@@ -89,7 +89,7 @@ userModels.getUserByName = (cond, proj) => {
  * select all record
  */
 userModels.getUserAll = () => {
-  return userModel.find((err, docs) => {
+  return UserModel.find((err, docs) => {
     if(err) console.log('getUserAll error:', err);
     console.log('getUserAll success:', docs)
   });

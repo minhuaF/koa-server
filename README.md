@@ -16,6 +16,8 @@
 1. 进入mongodb的安装路径 bin下；（我的路径是的 `D:\mongodb\mongodb\bin`）
 1. 执行命令 `mongo` 即可进入命令行操作命令；
 
+## ESLint 
+
 ## 项目结构
 
 ## 参考资料

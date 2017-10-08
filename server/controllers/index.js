@@ -3,11 +3,10 @@
  * Auth by Miwa
  */
 
- /**
+/**
   * controllers 文件夹用于实现逻辑以及调用数据库方法
   */
 
-import * as usersController from './user';
-import taskInfoController from './task'
+import * as usersController from './user'
 
-export default { usersController, taskInfoController };
+export default { usersController }
