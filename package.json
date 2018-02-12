@@ -1,6 +1,6 @@
 {
-  "name": "koa2-server",
-  "version": "1.0.0",
+  "name": "koa-server",
+  "version": "1.0.2",
   "scripts": {
     "start": "./node_modules/.bin/nodemon server/bin/run",
     "koa": "./node_modules/.bin/runkoa server/bin/www",
